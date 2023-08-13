@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('turbine_component', function (Blueprint $table) {
+        Schema::create('turbine_components', function (Blueprint $table) {
             $table->id();
             $table->foreignId('turbine_id');
             $table->foreignId('component_id');
