@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('turbine_id');
             $table->foreignId('component_id');
-            $table->integer('last_grade');
+            $table->integer('last_grade')->default(5);
             $table->timestamps();
             $table->softDeletes();
         });
