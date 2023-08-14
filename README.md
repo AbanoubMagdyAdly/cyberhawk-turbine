@@ -88,3 +88,11 @@ composer install --ignore-platform-reqs
 - `php artisan db:seed`
 - `sail up` or `./vendor/bin/sail up -d`
 - you could face something wrong with DB connection you should check .env switch `DB_HOST=mysql` to `DB_HOST=127.0.0.1` 
+
+
+5- Frontend
+- I used Argon Dashboard.
+- ![alt text](https://github.com/AbanoubMagdyAdly/cyberhawk-turbine/blob/main/Frontend.jpeg?raw=true)
+- Created login and Showing the turbines list and map pins
+
+- frontend Repo ![alt text](https://github.com/AbanoubMagdyAdly/turbine-react-app)
