@@ -67,4 +67,23 @@ composer install --ignore-platform-reqs
 ```
 
 ## Your Notes
-This is a place for you to add your notes, plans, thinking and any feedback you have for us of the task, please feel free to include whatever you like here, we'll make sure to read it. 
+1- Database Structure 
+![alt text](https://github.com/AbanoubMagdyAdly/cyberhawk-turbine/blob/main/ERD.png?raw=true)
+- Turbines Table
+- Components Table
+- Turbine Components Table 
+- Inspections Table
+- Turbine Component Inspections Table 
+
+2- Code Structure
+- Multi layer Structure 
+
+3- Postman Collaction 
+- https://api.postman.com/collections/20879216-cfed3169-d087-4272-a68f-96791f6688e4?access_key=PMAT-01H7SJFFHR86AVKP15JRY3RQAK
+
+4- Installation Steps
+- `composer install`
+- `composer udpate`
+- `php artisan migrate`
+- `sail up` or `./vendor/bin/sail up -d`
+- you could face something wrong with DB connection you should check .env switch `DB_HOST=mysql` to `DB_HOST=127.0.0.1` 
