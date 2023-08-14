@@ -85,5 +85,6 @@ composer install --ignore-platform-reqs
 - `composer install`
 - `composer update`
 - `php artisan migrate`
+- `php artisan db:seed`
 - `sail up` or `./vendor/bin/sail up -d`
 - you could face something wrong with DB connection you should check .env switch `DB_HOST=mysql` to `DB_HOST=127.0.0.1` 
