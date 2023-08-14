@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/auth', [AuthController::class, 'auth']);
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/me', [AuthController::class, 'me']);
     Route::get('/components', [ComponentController::class, 'index']);
     Route::post('/components', [ComponentController::class, 'store']);
     Route::get('/components/{id}', [ComponentController::class, 'show']);
