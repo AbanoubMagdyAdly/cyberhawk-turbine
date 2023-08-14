@@ -10,6 +10,12 @@ class TurbineComponents extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'turbine_id',
+        'component_id',
+        'last_grade',
+    ];
+
     public function turbine(): BelongsTo
     {
         return $this->belongsTo(Turbine::class);

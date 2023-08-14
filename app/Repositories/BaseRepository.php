@@ -27,6 +27,15 @@ class BaseRepository
     }
 
     /**
+     * @param array $attributes
+     * @return mixed
+     */
+    public function insert(array $attributes)
+    {
+        return $this->model->insert($attributes);
+    }
+
+    /**
      * @param       $id
      * @param array $data
      *
@@ -35,6 +44,17 @@ class BaseRepository
     public function update($id, array $data)
     {
         return $this->model->findOrFail($id)->update($data);
+    }
+
+    /**
+     * @param array $data
+     * @param       $key
+     *
+     * @return bool
+     */
+    public function upsert(array $data, $primaryKey, $updatedArray)
+    {
+        return $this->model->upsert($data, $primaryKey, $updatedArray);
     }
 
     /**

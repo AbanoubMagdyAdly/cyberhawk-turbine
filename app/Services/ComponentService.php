@@ -13,7 +13,7 @@ class ComponentService
 
     public function getAll() 
     {
-        return $this->componentRepository->all(relations: ['turbines']);
+        return $this->componentRepository->all();
     }
 
     public function store($component) 
@@ -23,7 +23,7 @@ class ComponentService
 
     public function getOne($id) 
     {
-        return $this->componentRepository->findOneByWithRelations(['id' => $id], ['turbines']);
+        return $this->componentRepository->find($id);
     }
 
 }
