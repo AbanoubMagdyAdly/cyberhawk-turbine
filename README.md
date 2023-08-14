@@ -76,7 +76,7 @@ composer install --ignore-platform-reqs
 - Turbine Component Inspections Table 
 
 2- Code Structure
-- Multi layer Structure 
+- Multi layer Structure (n-tier architecture)
 
 3- Postman Collaction 
 - https://api.postman.com/collections/20879216-cfed3169-d087-4272-a68f-96791f6688e4?access_key=PMAT-01H7SJFFHR86AVKP15JRY3RQAK
