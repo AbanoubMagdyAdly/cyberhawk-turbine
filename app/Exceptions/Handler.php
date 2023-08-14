@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -37,5 +38,29 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, Throwable $exception)
+    {
+        return $this->handleApiException($request, $exception);
+    }
+
+    private function handleApiException($request, Exception $exception)
+    {
+
+        $exception = $this->prepareException($exception);
+
+        if ($exception instanceof \Illuminate\Validation\ValidationException) {
+            $errorMessage = $exception->errors();
+            $statusCode = 422;
+        } else {
+            $errorMessage = $exception->getMessage();
+            $statusCode = 500;
+        }
+
+        $response['status'] = $statusCode;
+        $response['errors'] = $errorMessage;
+
+        return response()->json($response, $statusCode);
     }
 }
