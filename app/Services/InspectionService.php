@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Repositories\InspectionRepository;
 use App\Repositories\TurbineComponentInspectionsRepository;
 use App\Repositories\TurbineComponentsRepository;
+use Carbon\Carbon;
 
 class InspectionService
 {
@@ -26,7 +27,11 @@ class InspectionService
             $turbineComponentInspections = [];
             $inspection = $this->inspectionRepository->create([]);
             foreach ($inspectionData as $key => $value) {
-                $turbineComponentInspections []= array_merge($value, ["inspection_id" => $inspection->id]);
+                $turbineComponentInspections []= array_merge($value, [
+                    "inspection_id" => $inspection->id,
+                    'created_at'        => Carbon::now(),
+                    'updated_at'        => Carbon::now(),
+                ]);
                 $this->turbineComponentsRepository->update($value['turbine_components_id'], ['last_grade' => $value['grade']]);
             }
             $this->turbineComponentInspectionsRepository->insert($turbineComponentInspections);

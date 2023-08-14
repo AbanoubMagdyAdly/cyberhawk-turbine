@@ -10,10 +10,14 @@ class TurbineComponentInspections extends Model
 {
     use HasFactory;
 
+    public $timestamps = true;
+
     protected $fillable = [
         'inspection_id',
         'turbine_components_id',
         'grade',
+        'created_at',
+        'updated_at'
     ];
 
     public function turbineComponents(): BelongsTo

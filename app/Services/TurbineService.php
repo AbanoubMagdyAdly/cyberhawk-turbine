@@ -28,7 +28,7 @@ class TurbineService
 
     public function getOne($id) 
     {
-        return $this->componentRepository->findByWithRelations(['id' => $id], ['components']);
+        return $this->turbineRepository->findByWithRelations(['id' => $id], ['turbineComponents.inspections']);
     }
 
     public function detachComponent($turbineId, $componentIds) 
