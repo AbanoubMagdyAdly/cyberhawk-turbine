@@ -26,18 +26,26 @@ Route::post('/auth', [AuthController::class, 'auth']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', [AuthController::class, 'me']);
-    Route::get('/components', [ComponentController::class, 'index']);
-    Route::post('/components', [ComponentController::class, 'store']);
-    Route::get('/components/{id}', [ComponentController::class, 'show']);
 
-    Route::get('/turbines', [TurbineController::class, 'index']);
-    Route::post('/turbines', [TurbineController::class, 'store']);
-    Route::get('/turbines/{id}', [TurbineController::class, 'show']);
-    Route::post('/turbines/{id}/attach-component', [TurbineController::class, 'attachComponent']);
-    Route::post('/turbines/{id}/detach-component', [TurbineController::class, 'detachComponent']);
+    Route::prefix('components')->group(function () {  
+        Route::get('/', [ComponentController::class, 'index']);
+        Route::post('/', [ComponentController::class, 'store']);
+        Route::get('/{id}', [ComponentController::class, 'show']);
+    });
+
+    Route::prefix('turbines')->group(function () {  
+        Route::get('/', [TurbineController::class, 'index']);
+        Route::post('/', [TurbineController::class, 'store']);
+        Route::get('/{id}', [TurbineController::class, 'show']);
+        Route::post('/{id}/attach-component', [TurbineController::class, 'attachComponent']);
+        Route::post('/{id}/detach-component', [TurbineController::class, 'detachComponent']);
+    });
 
 
-    Route::get('/inspections', [InspectionController::class, 'index']);
-    Route::post('/inspections', [InspectionController::class, 'store']);
-    Route::get('/inspections/{id}', [InspectionController::class, 'show']);
+    Route::prefix('inspections')->group(function () {  
+        Route::get('/', [InspectionController::class, 'index']);
+        Route::post('/', [InspectionController::class, 'store']);
+        Route::get('/{id}', [InspectionController::class, 'show']);
+    });
+
 });
