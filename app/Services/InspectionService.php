@@ -16,23 +16,26 @@ class InspectionService
     ) {
     }
 
-    public function getAll() 
+    public function getAll()
     {
         return $this->inspectionRepository->all();
     }
 
-    public function store($inspectionData) 
+    public function store($inspectionData)
     {
         $inspection = \DB::transaction(function () use ($inspectionData) {
             $turbineComponentInspections = [];
             $inspection = $this->inspectionRepository->create([]);
             foreach ($inspectionData as $key => $value) {
-                $turbineComponentInspections []= array_merge($value, [
+                $turbineComponentInspections [] = array_merge($value, [
                     "inspection_id" => $inspection->id,
                     'created_at'        => Carbon::now(),
                     'updated_at'        => Carbon::now(),
                 ]);
-                $this->turbineComponentsRepository->update($value['turbine_components_id'], ['last_grade' => $value['grade']]);
+                $this->turbineComponentsRepository->update(
+                    $value['turbine_components_id'],
+                    ['last_grade' => $value['grade']]
+                );
             }
             $this->turbineComponentInspectionsRepository->insert($turbineComponentInspections);
             return $inspection->refresh();
@@ -41,9 +44,8 @@ class InspectionService
         return $inspection;
     }
 
-    public function getOne($id) 
+    public function getOne($id)
     {
         return $this->inspectionRepository->find($id);
     }
-
 }

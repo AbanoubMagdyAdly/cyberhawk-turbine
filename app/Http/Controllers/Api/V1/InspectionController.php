@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Response;
 
 class InspectionController extends Controller
 {
-        public function __construct(
+    public function __construct(
         private InspectionService $inspectionService,
     ) {
     }
@@ -21,7 +21,7 @@ class InspectionController extends Controller
      */
     public function index(): JsonResponse
     {
-        return Response::json($this->inspectionService->getAll()); 
+        return Response::json($this->inspectionService->getAll());
     }
 
     /**

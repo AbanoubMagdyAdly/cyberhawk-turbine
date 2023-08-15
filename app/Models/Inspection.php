@@ -17,6 +17,11 @@ class Inspection extends Model
 
     public function turbineComponentInspections()
     {
-        return $this->belongsToMany(TurbineComponents::class, 'turbine_component_inspections', 'inspection_id', 'turbine_components_id')->withPivot('grade');
+        return $this->belongsToMany(
+            TurbineComponents::class,
+            'turbine_component_inspections',
+            'inspection_id',
+            'turbine_components_id'
+        )->withPivot('grade');
     }
 }

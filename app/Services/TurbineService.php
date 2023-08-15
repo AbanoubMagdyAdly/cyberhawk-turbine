@@ -13,12 +13,12 @@ class TurbineService
     ) {
     }
 
-    public function getAll() 
+    public function getAll()
     {
         return $this->turbineRepository->all(relations: ['components']);
     }
 
-    public function store($turbine) 
+    public function store($turbine)
     {
         $components = $this->componentRepository->whereIdIn($turbine['components']);
         $turbine = $this->turbineRepository->create($turbine);
@@ -26,12 +26,12 @@ class TurbineService
         return $turbine;
     }
 
-    public function getOne($id) 
+    public function getOne($id)
     {
         return $this->turbineRepository->findByWithRelations(['id' => $id], ['turbineComponents.inspections']);
     }
 
-    public function detachComponent($turbineId, $componentIds) 
+    public function detachComponent($turbineId, $componentIds)
     {
         $turbine = $this->turbineRepository->find($turbineId);
         $components = $this->componentRepository->whereIdIn($componentIds);
@@ -39,7 +39,7 @@ class TurbineService
         return $turbine;
     }
 
-    public function attachComponent($turbineId, $componentIds) 
+    public function attachComponent($turbineId, $componentIds)
     {
         $turbine = $this->turbineRepository->find($turbineId);
         $components = $this->componentRepository->whereIdIn($componentIds);

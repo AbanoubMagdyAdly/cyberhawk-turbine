@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Response;
 
 class TurbineController extends Controller
 {
-
     public function __construct(
         private TurbineService $turbineService,
     ) {
@@ -56,5 +55,4 @@ class TurbineController extends Controller
     {
         return Response::json($this->turbineService->detachComponent($id, $request->components));
     }
-
 }

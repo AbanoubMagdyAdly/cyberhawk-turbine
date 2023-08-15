@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Response;
 
 class ComponentController extends Controller
 {
-
     public function __construct(
         private ComponentService $componentService,
     ) {
@@ -33,7 +32,7 @@ class ComponentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(CreateComponentRequest $request) :JsonResponse
+    public function store(CreateComponentRequest $request): JsonResponse
     {
         return Response::json($this->componentService->store($request->all()));
     }

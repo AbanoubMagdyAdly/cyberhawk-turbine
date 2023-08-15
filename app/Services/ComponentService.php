@@ -11,19 +11,18 @@ class ComponentService
     ) {
     }
 
-    public function getAll() 
+    public function getAll()
     {
         return $this->componentRepository->all();
     }
 
-    public function store($component) 
+    public function store($component)
     {
         return $this->componentRepository->create($component);
     }
 
-    public function getOne($id) 
+    public function getOne($id)
     {
         return $this->componentRepository->find($id);
     }
-
 }
