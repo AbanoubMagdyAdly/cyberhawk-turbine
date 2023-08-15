@@ -89,6 +89,7 @@ composer install --ignore-platform-reqs
 - `sail up` or `./vendor/bin/sail up -d`
 - you could face something wrong with DB connection you should check .env switch `DB_HOST=mysql` to `DB_HOST=127.0.0.1` 
 - Run tests `php artisan test`
+- For Coding style in PSR-12 `sudo apt install php-codesniffer` then run `phpcs --standard=PSR12 app`
 
 
 
