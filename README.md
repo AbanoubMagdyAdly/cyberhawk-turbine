@@ -93,7 +93,7 @@ composer install --ignore-platform-reqs
 
 
 
-5- Frontend
+5- Frontend (just to see virual results, I'm not a Frontend dev, the code needs enhancements in structure and code design)
 - I used Argon Dashboard.
 - ![alt text](https://github.com/AbanoubMagdyAdly/cyberhawk-turbine/blob/main/Frontend.jpeg?raw=true)
 - Created login and Showing the turbines list and map pins
